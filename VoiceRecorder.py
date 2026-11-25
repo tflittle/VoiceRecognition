@@ -10,20 +10,20 @@ from MFCC import calculate_mfcc
 MODEL_FILE = "trained_model.npz"
 AUDIO_FILE = "new_recording.wav"
 
-OUTPUT_FOLDER = r"C:\Users\trent\VoiceRecognition"
+OUTPUT_FOLDER = r"/home/trent/VoiceRecognition/VoiceReference/disable"
 
 
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-ser = serial.Serial("COM4", 921600, timeout = 5)
+ser = serial.Serial('/dev/ttyACM1', 921600, timeout = 5)
 
 SAMPLE_RATE = 16000
 NUM_SAMPLES = 16000
 NUM_BYTES = NUM_SAMPLES * 2
 
-for samples in range(0,1):
+for samples in range(251,301):
 
-    filename = os.path.join(OUTPUT_FOLDER, f"new_recording.wav")
+    filename = os.path.join(OUTPUT_FOLDER, f"disable_{samples}.wav")
     input("\nPress Enter, then say the word...")
 
     time.sleep(0.2)
